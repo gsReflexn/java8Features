@@ -1,7 +1,7 @@
-package java8.parralel_stream;
+package parralel_stream;
 
-import java8.map_reduce.Employee;
-import java8.map_reduce.EmployeeDatabase;
+import map_reduce.Employee;
+import map_reduce.EmployeeDatabase;
 
 import java.util.List;
 import java.util.stream.IntStream;

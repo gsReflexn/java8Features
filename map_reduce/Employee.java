@@ -1,4 +1,4 @@
-package java8.map_reduce;
+package map_reduce;
 
 public class Employee {
     private int id;

@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class OptionalDemo {
-    public static Customer getCustomerByEmailId(String email) throws Exception {
-        List<Customer> customers = EkartDataBase.getAll();
+    public static java8.Customer getCustomerByEmailId(String email) throws Exception {
+        List<java8.Customer> customers = EkartDataBase.getAll();
         return customers.stream()
                 .filter(customer -> customer.getEmail().equals(email))
                 .findAny().orElseThrow(()->new Exception("no customer present with this email id"));
@@ -15,7 +15,7 @@ public class OptionalDemo {
 
     public static void main(String[] args) throws Exception {
 
-        Customer customer=new Customer(101, "john", "test@gmail.com", Arrays.asList("397937955", "21654725"));
+        java8.Customer customer=new java8.Customer(101, "john", "test@gmail.com", Arrays.asList("397937955", "21654725"));
 
         //empty
         //of

@@ -5,11 +5,13 @@ import java.util.*;
 public class SortMapUsingStream {
 
     public static void main(String[] args) {
-        Map<String,Integer> mpp = new HashMap<>();
+        Map<String,Integer> mpp = new TreeMap<>();
         mpp.put("Gurmeet" , 5);
         mpp.put("Guri", 2);
         mpp.put("Ashish", 4);
         mpp.put("Surbhi", 1);
+
+        System.out.println(mpp);
 
         /**
          * sort only accepts list. So we will have to get the list from map.
@@ -17,7 +19,8 @@ public class SortMapUsingStream {
          *
          */
 
-        //List<Map.Entry<String,Integer>> entryList = new ArrayList<>(mpp.entrySet());
+        List<Map.Entry<String,Integer>> entryList = new ArrayList<>(mpp.entrySet());
+        System.out.println(entryList);
 
         /**
          * below method is sorting the map in traditional way.
@@ -36,25 +39,25 @@ public class SortMapUsingStream {
          * below method is sorting the map using lambda expression
          */
 
-//        Collections.sort(entryList,(o1, o2) -> o1.getKey().compareTo(o2.getKey()));
-//
-//        System.out.println("Printing after sorting using traditional way ");
-//        for(Map.Entry entry: entryList){
-//            System.out.println(entry.getKey()+" "+entry.getValue());
-//        }
+        Collections.sort(entryList,(o1, o2) -> o1.getKey().compareTo(o2.getKey()));
+
+        System.out.println("Printing after sorting using traditional way ");
+        for(Map.Entry entry: entryList){
+            System.out.println(entry.getKey()+" "+entry.getValue());
+        }
 
         /**
          * now we will sort the map using stream api
          *
          */
 
-//        System.out.println("Sorting wrt to key");
+        System.out.println("Sorting wrt to key");
 //
-//        mpp.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
+       mpp.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
 //
-//        System.out.println("Sorting wrt to value");
+       System.out.println("Sorting wrt to value");
 //
-//        mpp.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
+       mpp.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
 
         /**
          * For sorting the map in reverse order of key and value
@@ -95,7 +98,7 @@ public class SortMapUsingStream {
         /**
          * sorting the treemap having Employee class as key in reverse order using stream api
          */
-        empMap.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.comparing(Employee::getSalary))).forEach(System.out::println);
+        //empMap.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.comparing(Employee::getSalary))).forEach(System.out::println);
 
         /**
          * in treemap we cannot sort here with value cause it's primitive integer.

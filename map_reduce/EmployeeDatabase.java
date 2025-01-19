@@ -1,4 +1,4 @@
-package java8.map_reduce;
+package map_reduce;
 
 import java.util.List;
 import java.util.stream.Collectors;

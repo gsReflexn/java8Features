@@ -1,8 +1,9 @@
-package java8.map_reduce;
+package map_reduce;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class MapReduceExample {
 
@@ -58,5 +59,19 @@ public class MapReduceExample {
                 .mapToDouble(i -> i)
                 .sum();
         System.out.println(sumSalary);
+
+
+        List<String> namesList = EmployeeDatabase.getEmployees().stream()
+                .filter(employee -> employee.getSalary() > 50000)
+                .map(Employee::getName)
+                .distinct()
+                .sorted()
+                .collect(Collectors.toList());
+
+        for(String s: namesList){
+            System.out.println(s);
+        }
+
+
     }
 }
